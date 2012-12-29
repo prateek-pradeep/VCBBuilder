@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="Vocab_Builder.TestPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Vocab_Builder"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox x:Name="txtWord" Width="500" Height="100" TextWrapping="Wrap"  />
+            <Button Content="Get Length" Click="Button_Click_1"/>
+            <TextBlock x:Name="txtLength" FontSize="20"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

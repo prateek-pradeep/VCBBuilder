@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Vocab_Builder.Common
+{
+    public static class Constants
+    {
+        #region Integer
+        public const int MaxLength10 = 10;
+        public const int MaxLength30 = 30;
+        public const int MaxLength100 = 100;
+        public const int MaxLength200 = 200;
+        public const int MaxLength500 = 500;
+        public const int MaxLength2000 = 2000;
+        #endregion
+
+        #region String
+
+        public const string DatabaseFileName = "VocabData.sqlite";
+
+        #region Parameter
+        public const string ParameterAllGroups = "AllGroups";
+        #endregion
+
+        #region Exception Message
+        public const string ExceptionMsg101 = "Only 'AllGroups' is supported as a collection of groups";
+        #endregion
+
+        #endregion
+    }
+}
