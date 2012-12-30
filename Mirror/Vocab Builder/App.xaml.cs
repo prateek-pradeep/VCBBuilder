@@ -119,56 +119,47 @@ namespace Vocab_Builder
 
         private void ResetData()
         {
-            using (var db = new SQLite.SQLiteConnection(DBPath))
-            {
-                #region Filling WordGroup Table
-                db.DeleteAll<WordGroup>();
+            //using (var db = new SQLite.SQLiteConnection(DBPath))
+            //{
+            //    #region Filling WordGroup Table
+            //    db.DeleteAll<WordGroup>();
 
-                char alphabet = Constants.CapsA;
-                for (int index = alphabet; index <= Constants.CapsZ; index++)
-                {
-                    alphabet = (char)index;
-                    db.Insert(new WordGroup()
-                    {
-                        GroupName = alphabet.ToString(),
-                        Description = String.Format(Constants.GroupDescription, alphabet)
-                    });
-                }
-                #endregion
+            //    char alphabet = Constants.CapsA;
+            //    for (int index = alphabet; index <= Constants.CapsZ; index++)
+            //    {
+            //        alphabet = (char)index;
+            //        db.Insert(new WordGroup()
+            //        {
+            //            GroupName = alphabet.ToString(),
+            //            Description = String.Format(Constants.GroupDescription, alphabet)
+            //        });
+            //    }
+            //    #endregion
 
-                #region Filling WordDetails table
-                db.DeleteAll<WordDetails>();
-                db.Insert(new WordDetails()
-                {
-                    WordKey = 1000,
-                    WordName = "Analogy",
-                    GroupName = "A",
-                    BaseName = "comparison"
-                });
-                db.Insert(new WordDetails()
-                {
-                    WordKey = 1001,
-                    WordName = "Apothegm",
-                    GroupName = "A",
-                    BaseName="saying"
-                });
-                db.Insert(new WordDetails()
-                {
-                    WordKey = 1002,
-                    WordName = "Masquerade",
-                    GroupName = "M",
-                    BaseName="secretive"
-                });
-                db.Insert(new WordDetails()
-                {
-                    WordKey = 1003,
-                    WordName = "Churlish",
-                    GroupName = "C",
-                    BaseName="rude"
-                });
-                #endregion
+            //    #region Filling WordDetails table
+            //    db.DeleteAll<WordDetails>();
+            //    WordDetails wordDetails = new WordDetails();
+            //    uint wordKey = 1000;
 
-            }
+            //    for (int i = 0; i < 26; i++)
+            //    {
+            //        string groupName = ((char)(i + Constants.AsciiValueOfA)).ToString().ToUpper();
+            //        string wordName = groupName + "nalogy";
+            //        string baseName = groupName + "ase";
+
+            //        for (uint j = 0; j < 120; j++)
+            //        {
+            //            wordDetails.WordKey = wordKey++;
+            //            wordDetails.WordName = wordName;
+            //            wordDetails.GroupName = groupName;
+            //            wordDetails.BaseName = baseName;
+            //            db.Insert(wordDetails);
+            //        }
+            //    }                
+                
+            //    #endregion
+
+            //}
         }
 
         /// <summary>
