@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Vocab_Builder.Model;
 using Vocab_Builder.Common;
+using Vocab_Builder.Business_Logic;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
@@ -58,7 +59,7 @@ namespace Vocab_Builder
 
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
+            this.Frame.Navigate(typeof(GroupDetailPage), ((WordDataGroup)group).GroupName);
         }
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace Vocab_Builder
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            uint itemId = ((WordDataDetail)e.ClickedItem).WordKey;
             this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
     }

@@ -28,6 +28,21 @@ namespace Vocab_Builder.Model
             return _wordDataSource.AllGroups;
         }
 
+        public static WordDataGroup GetGroup(string groupName)
+        {
+            var match = _wordDataSource.AllGroups.FirstOrDefault((group) => group.GroupName.Equals(groupName));
+                if(match!=null) return match;
+                return null;
+        }
+
+        public static WordDataDetail GetItem(uint wordkey)
+        {
+            //uint key;
+            //uint.TryParse(wordkey, out key);
+            var match = _wordDataSource.AllGroups.SelectMany(group => group.Items).FirstOrDefault((item) => item.WordKey == wordkey);
+            if (match != null) return match;
+            return null;
+        }
         public static async Task LoadLocalDataAsync()
         {
             try
@@ -58,12 +73,8 @@ namespace Vocab_Builder.Model
 
                         wordDataDetail.AntonymId = item.AntonymId;
                         wordDataDetail.DateModified = item.DateModified;
-                        wordDataDetail.Definition = new Definitions(){DefinitionAdverb = item.DefinitionAdverb, DefinitoinAdjective = item.DefinitionAdjective, DefinitionNoun= item.DefinitionNoun, DefinitionVerb = item.DefinitionVerb};
-                        //wordDataDetail.Definition.DefinitionAdverb = ;
-                        //wordDataDetail.Definition.DefinitoinAdjective = ;
-                        //wordDataDetail.Definition.DefinitionNoun = ;
-                        //wordDataDetail.Definition.DefinitionVerb = item.DefinitionVerb;
-                        wordDataDetail.Group = new WordDataGroup() { GroupName = item.GroupName};
+                        wordDataDetail.Definition = new Definitions() { DefinitionAdverb = item.DefinitionAdverb, DefinitoinAdjective = item.DefinitionAdjective, DefinitionNoun = item.DefinitionNoun, DefinitionVerb = item.DefinitionVerb };
+                        wordDataDetail.Group = _wordDataSource._allGroups[index];
                         wordDataDetail.Mnemonics = item.Mnemonics;
                         wordDataDetail.Root = item.Root;
                         wordDataDetail.Sentence = item.Sentence;
@@ -75,7 +86,7 @@ namespace Vocab_Builder.Model
                     }
                 }
             }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
         }
 
     }
